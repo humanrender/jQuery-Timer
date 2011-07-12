@@ -1,0 +1,27 @@
+# =================
+# = Example Usage =
+# =================
+
+  function init(){
+
+    var timer = new Timer(1000,10); //instantiate a timer to tick 10 times each 1000 milliseconds
+    timer.bind(Timer.TICK,function(event,info){
+      // info has the current_count and last properties.
+      console.log("*",timer.is_running(),info.current_count,info.last)
+    })
+    timer.start(); //start timer
+
+
+    var _timer = new Timer(500); //instantiate a timer to tick each 500 milliseconds indefinitely
+    _timer.start();
+    _timer.tick(function(event,info){
+      console.log("=",_timer.is_running(),info.current_count)
+    })
+
+    setInterval(function(){
+      if(_timer.current_count() == 10) _timer.stop(); // stop timer when the tick count reaches 10 and running one last iteration
+      if(timer.current_count() == 3) timer.stop(true); // stop timer when the tick count reaches 3, will not run a last iteration
+    },200)
+  }
+
+  $(document).ready(init);
