@@ -19,8 +19,8 @@
     })
 
     setInterval(function(){
-      if(_timer.current_count() == 10) _timer.stop(); // stop timer when the tick count reaches 10 and running one last iteration
-      if(timer.current_count() == 3) timer.stop(true); // stop timer when the tick count reaches 3, will not run a last iteration
+      if(_timer.current_count() == 3) _timer.stop(); // stop timer when the tick count reaches 3 
+      if(timer.current_count() == 10) timer.stop(true); // stop timer when the tick count reaches 10, will run a last iteration before stopping
     },200)
   }
 

@@ -35,8 +35,8 @@ function Timer(delay,repeat){
     }
   }
   
-  self.stop = function(abort){
-    if(!!abort){
+  self.stop = function(wait){
+    if(!wait){
       if(self.timer){
         clearTimeout(self.timer);
       }
